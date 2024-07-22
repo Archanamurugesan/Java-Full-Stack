@@ -1,0 +1,10 @@
+<style>
+    .MyHeading-1{
+        border: 2px solid green;
+        text-align: center;
+        width: 50%;
+        color: green;
+        background-color: yellow;
+        cursor: pointer;
+    }
+</style>
