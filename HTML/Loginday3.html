@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+}
+
+.login-container {
+    background-image: url(login\ back.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.login-box {
+    background: rgba(250, 247, 247, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.p{
+    align-items: center;
+    font-weight: bold;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+
+.email {
+    margin-bottom: 15px;
+}
+
+.email label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.password {
+    margin-bottom: 15px;
+}
+
+.password label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="profile-picture">
+                <img src="loginprofile.jpg" alt="Profile Picture">
+            </div>
+            <p>Login Window</p>
+            <form>
+                <div class="email">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="password">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <br>
+                    <input type="checkbox">Agree with Terms and Condition
+                <br>
+                <br>
+                <button type="submit">Login</button>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
