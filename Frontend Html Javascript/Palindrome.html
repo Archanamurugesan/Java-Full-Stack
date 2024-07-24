@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Palindrome</title>
+    </head>
+
+    <script>
+        function palindrome() {
+        var string = document.getElementById("n").value;
+        var rev = "";
+        for (var i = string.length - 1; i >= 0; i--) {
+            rev += string[i];
+        }
+        if (rev==string)
+        {
+            document.getElementById("res").innerHTML="Palindrome"
+        }
+
+        else{
+            document.getElementById("res").innerHTML="Not Palindrome"
+        }
+        }
+
+    </script>
+
+    <body>
+        Enter the String: <input type="text" id="n"/>
+        <br><br>
+        <button onclick="palindrome()">Check</button>
+        <br><br>
+<div id="res">
+
+</div>
+    </body>
+</html>
+
+
+
+

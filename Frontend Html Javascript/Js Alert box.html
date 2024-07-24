@@ -1,0 +1,65 @@
+<html>
+    <head>
+
+    
+    <title>My First JS Web Page</title>
+    <script>
+        function myFunction()
+        {
+            alert("Example for JavaScript Function");
+        }
+
+        function addition(a,b){
+            let sum=a+b;
+            alert("Addition: "+ sum);
+        }
+
+        function subtraction(a,b){
+            let sub=a-b;
+            alert("Subtraction: " + sub);
+        }
+
+        function multiplication(a,b){
+            let multiple=a*b;
+            alert("Multiplication: " + multiple);
+            }
+
+        function division(a,b){
+            let div=a/b;
+            alert("Division: " + div);
+        }
+    </script>
+    </head>
+
+    <body>
+        <button onclick="myFunction()">Click Me</button>
+        <br><br>
+        <button onclick="addition(10,20)">Addition</button>
+        <br><br>
+        <button onclick="subtraction(20,10)">Subtraction</button>
+        <br><br>
+        <button onclick="multiplication(20,10)">Multiplication</button>
+        <br><br>
+        <button onclick="division(5,50)">Division</button>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (num <= 1) return false;
+for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false;
+}

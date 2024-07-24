@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Factorial</title>
+    </head>
+
+    <script>
+        function Factorial(){
+            let a=parseInt(document.getElementById("n").value);
+            let result = 1
+            
+            if (a==0 || a==1)
+            result=1;
+            else 
+                for(let i=2;i<=a;i++)
+            result =result*i;
+
+            document.getElementById("ResultDiv").innerHTML="<font color='green'><b>"+ result+ "<b></font color>";
+
+   
+        }
+
+    </script>
+
+    <body>
+        Enter a Number <input type="text" id="n"/>
+        <br>
+        <button onclick="Factorial()">Find Factorial</button>
+        <br>
+        <div id="ResultDiv">
+        </div>
+
+    </body>
+</html>
+
