@@ -1,94 +1,115 @@
-<!DOCTYPE html>  
-<html lang = "en">  
-<head>  
-<title> JavaScript Calculator </title>  
-  
-<style>  
-h1 {  
-    text-align: center;  
-    padding: 23px;  
-    background-color: skyblue;  
-    color: white;  
-    }  
-  
-#clear{  
-width: 270px;  
-border: 3px solid gray;  
-    border-radius: 3px;  
-    padding: 20px;  
-    background-color: red;  
-}  
-  
-.formstyle  
-{  
-width: 300px;  
-height: 530px;  
-margin: auto;  
-border: 3px solid skyblue;  
-border-radius: 5px;  
-padding: 20px;  
-}  
-  
-  
-  
-input  
-{  
-width: 20px;  
-background-color: green;  
-color: white;  
-border: 3px solid gray;  
-    border-radius: 5px;  
-    padding: 26px;  
-    margin: 5px;  
-    font-size: 15px;  
-}  
-  
-  
-#calc{  
-width: 250px;  
-border: 5px solid black;  
-    border-radius: 3px;  
-    padding: 20px;  
-    margin: auto;  
-}  
-  
-</style>  
-  
-</head>  
-<body>  
-<h1> Calculator</h1>  
-<div class= "formstyle">
-<form name = "form1">  
-      
-  <input id = "calc" type ="text" name = "answer"> <br> <br>  
-  <input type = "button" value = "1" onclick= "form1.answer.value += '1' ">  
-  <input type = "button" value = "2" onclick = "form1.answer.value += '2' ">  
-  <input type = "button" value = "3" onclick = "form1.answer.value += '3' ">  
-   <input type = "button" value = "+" onclick = "form1.answer.value += '+' ">  
-  <br> <br>  
-    
-  <input type = "button" value = "4" onclick = "form1.answer.value += '4' ">  
-  <input type = "button" value = "5" onclick = "form1.answer.value += '5' ">  
-  <input type = "button" value = "6" onclick = "form1.answer.value += '6' ">  
-  <input type = "button" value = "-" onclick = "form1.answer.value += '-' ">  
-  <br> <br>  
-    
-  <input type = "button" value = "7" onclick = "form1.answer.value += '7' ">  
-  <input type = "button" value = "8" onclick = "form1.answer.value += '8' ">  
-  <input type = "button" value = "9" onclick = "form1.answer.value += '9' ">  
-  <input type = "button" value = "*" onclick = "form1.answer.value += '*' ">  
-  <br> <br>  
-    
-    
-  <input type = "button" value = "/" onclick = "form1.answer.value += '/' ">  
-  <input type = "button" value = "0" onclick = "form1.answer.value += '0' ">  
-    <input type = "button" value = "." onclick = "form1.answer.value += '.' ">  
-  <input type = "button" value = "=" onclick = "form1.answer.value = eval(form1.answer.value) ">  
-  <br>   
-  <input type = "button" value = "Clear All" onclick = "form1.answer.value = ' ' " id= "clear" >  
-  <br>   
-    
-</form>  
-</div>  
-</body>  
-</html>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 5px auto;
+        }
+        
+        table { 
+            width: 100%;
+            background-color: rgb(248, 239, 239);
+        } 
+        
+        input[type="button"] {
+            width: 100%; 
+            padding: 20px; 
+            background-color: rgb(49, 131, 38); 
+            color: white; 
+            font-size: 24px; 
+            font-weight: bold; 
+            border: none; 
+            border-radius: 5px; 
+        } 
+        
+        input[type="text"] { 
+            width: 100%;
+            padding: 20px; 
+            font-size: 24px; 
+            font-weight: bold; 
+            border: none; 
+            border-radius: 5px; 
+            border: 2px solid black; 
+            text-align: right;
+        } 
+
+        .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .clear, .equal-sign {
+            background-color: rgb(255, 69, 58);
+        }
+
+        .operator {
+            background-color: rgb(59, 130, 246);
+        }
+
+        .button, .operator, .clear, .equal-sign {
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function solve(){
+            let x = document.getElementById('result').value;
+            try {
+                let y = eval(x);
+                document.getElementById('result').value = y;
+            } catch (e) {
+                document.getElementById('result').value = "Error";
+            }
+        }
+
+        function clearScreen(){
+            document.getElementById('result').value = '';
+        }
+
+        function deleteLast(){
+            let value = document.getElementById('result').value;
+            document.getElementById('result').value = value.slice(0, -1);
+        }
+
+        function display(value) {
+            document.getElementById('result').value += value;
+        }
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center;">Calculator</h1> 
+    <div class="container">
+        <table>
+            <tr>
+                <td colspan="4"><input type='text' id='result' class='screen'></td>
+            </tr>
+        </table>
+        <div class="keys">
+            <input type="button" value="C" class="clear" onclick="clearScreen()">
+            <input type="button" value="%" class="operator" onclick="display('%')">
+            <input type="button" value="<=" class="button" onclick="deleteLast()">
+            <input type="button" value="00" class="button" onclick="display('00')">
+            <input type="button" value="7" class="button" onclick="display('7')">
+            <input type="button" value="8" class="button" onclick="display('8')">
+            <input type="button" value="9" class="button" onclick="display('9')">
+            <input type="button" value="/" class="operator" onclick="display('/')">
+            <input type="button" value="4" class="button" onclick="display('4')">
+            <input type="button" value="5" class="button" onclick="display('5')">
+            <input type="button" value="6" class="button" onclick="display('6')">
+            <input type="button" value="*" class="operator" onclick="display('*')">
+            <input type="button" value="1" class="button" onclick="display('1')">
+            <input type="button" value="2" class="button" onclick="display('2')">
+            <input type="button" value="3" class="button" onclick="display('3')">
+            <input type="button" value="-" class="operator" onclick="display('-')">
+            <input type="button" value="0" class="button" onclick="display('0')">
+            <input type="button" value="." class="button" onclick="display('.')">
+            <input type="button" value="=" class="button equal-sign" onclick="solve()">
+            <input type="button" value="+" class="operator" onclick="display('+')">
+        </div> 
+    </div> 
+</body>
+</html>

@@ -1,20 +1,23 @@
-<!DOCTYPE html> 
-<html> 
-
-<head> 
-    <title>HTML Calculator</title> 
-
-    <style> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 5px auto;
+        }
+        
         table { 
+            width: 100%;
             background-color: rgb(248, 239, 239);
-            border: 1px solid black; 
-            margin-left: auto; 
-            margin-right: auto; 
         } 
         
-        input[type="button"] { 
+        input[type="button"] {
             width: 100%; 
-            padding: 20px ; 
+            padding: 20px; 
             background-color: rgb(49, 131, 38); 
             color: white; 
             font-size: 24px; 
@@ -24,62 +27,65 @@
         } 
         
         input[type="text"] { 
-            padding: 20px 30px; 
+            width: 100%;
+            padding: 20px; 
             font-size: 24px; 
             font-weight: bold; 
             border: none; 
             border-radius: 5px; 
             border: 2px solid black; 
+            text-align: right;
         } 
-    </style> 
 
-    <script>
+        .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
 
-        
-    </script>
-</head> 
+        .clear, .equal-sign {
+            background-color: rgb(255, 69, 58);
+        }
 
-<body> 
+        .operator {
+            background-color: rgb(59, 130, 246);
+        }
 
-    <table id="cal"
-        <tr> 
-            <td colspan="6"> 
-                <input type="text" id="result"> 
-            </td> 
-        </tr> 
-
-        <tr> 
-            <td><input type="button" value="C"></td> 
-            <td><input type="button" value="%"></td> 
-            <td><input type="button" value="<="></td> 
-            <td><input type="button" value="/"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="7"></td> 
-            <td><input type="button" value="8"></td> 
-            <td><input type="button" value="9"></td> 
-            <td><input type="button" value="*"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="4"></td> 
-            <td><input type="button" value="5"></td> 
-            <td><input type="button" value="6"></td> 
-            <td><input type="button" value="-"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="1"></td> 
-            <td><input type="button" value="2"></td> 
-            <td><input type="button" value="3"></td> 
-            <td><input type="button" value="+"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="00"></td> 
-            <td><input type="button" value="0"></td> 
-            <td><input type="button" value="."></td> 
-            <td><input type="button" value="="></td> 
-        </tr> 
-      
-    </table> 
-</body> 
-
+        .button, .operator, .clear, .equal-sign {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Calculator</h1> 
+  <div class="container">
+      <table>
+          <tr>
+              <td colspan="4"><input type='text' id='result' class='screen'></td>
+          </tr>
+      </table>
+      <div class="keys">
+          <input type="button" value="C" class="clear" onclick="clearScreen()">
+          <input type="button" value="%" class="operator" onclick="display('%')">
+          <input type="button" value="<=" class="button" onclick="deleteLast()">
+          <input type="button" value="00" class="button" onclick="display('00')">
+          <input type="button" value="7" class="button" onclick="display('7')">
+          <input type="button" value="8" class="button" onclick="display('8')">
+          <input type="button" value="9" class="button" onclick="display('9')">
+          <input type="button" value="/" class="operator" onclick="display('/')">
+          <input type="button" value="4" class="button" onclick="display('4')">
+          <input type="button" value="5" class="button" onclick="display('5')">
+          <input type="button" value="6" class="button" onclick="display('6')">
+          <input type="button" value="*" class="operator" onclick="display('*')">
+          <input type="button" value="1" class="button" onclick="display('1')">
+          <input type="button" value="2" class="button" onclick="display('2')">
+          <input type="button" value="3" class="button" onclick="display('3')">
+          <input type="button" value="-" class="operator" onclick="display('-')">
+          <input type="button" value="0" class="button" onclick="display('0')">
+          <input type="button" value="." class="button" onclick="display('.')">
+          <input type="button" value="=" class="button equal-sign" onclick="solve()">
+          <input type="button" value="+" class="operator" onclick="display('+')">
+      </div> 
+  </div> 
+</body>
 </html>
