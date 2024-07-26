@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page using Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .container{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        height: 42vh;
+        width: 34vh;
+        border: 2px solid black;
+    }
+    .card{
+        width: 50vh;
+        height: 50vh;
+        
+    }
+
+    .card-header {
+        background-color: #18edf5;
+        color: white;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-group{
+        width: 300px;
+    }
+
+
+    hr {
+        border: 0.5px solid gray;
+    }
+</style>
+<body>
+    <div class="container">
+        
+        <div class="card">
+            <div class="card-header text-white" style="background-color: #18edf5;">
+                Sign in
+                <span class="pull-right">Forgot Password?</span>
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="email" class="form-control" name="email" placeholder="username or email">
+            </div>
+            <br>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="password">
+            </div>
+            <br>
+            <div class="input-group">
+            
+                <input class="form-check-input" type="checkbox"> Remember me
+            </div>
+            <br>
+            <button type="button" class="btn btn-success">Login</button>
+            <button type="button" class="btn btn-primary">Login with Facebook</button>
+            <br><br>
+            
+            <hr size />
+            <p>Don't have an account! <font color = "skyblue">Sign Up Here</font></p>
+        
+    </div>
+</body>
+</html>
