@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Expenses Tracker</title>
+    <link rel="stylesheet" href="app.component.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Expenses Tracker</h1>
+        <form id="expense-form">
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" placeholder="e.g. Food, Transport" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="e.g., 500" required>
+            </div>
+            <button type="submit">Add Expense</button>
+        </form>
+        <h2>Expenses</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table">
+            </tbody>
+        </table>
+    </div>
+    <script src="app.component.ts"></script>
+</body>
+</html>
