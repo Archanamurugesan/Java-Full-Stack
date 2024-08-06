@@ -1,0 +1,34 @@
+{
+  "expenses": [
+    {
+      "id": "201",
+      "place": "Ooty",
+      "category": "Fuel",
+      "amount": 2500
+    },
+    {
+      "id": "101",
+      "place": "Valparai",
+      "category": "Food",
+      "amount": 1200
+    },
+    {
+      "id": "401",
+      "place": "Theni",
+      "category": "Shopping",
+      "amount": 2850
+    },
+    {
+      "id": "501",
+      "place": "Masinagudi",
+      "category": "Transport",
+      "amount": 3200
+    },
+    {
+      "id": "601",
+      "place": "Kolukkumalai",
+      "category": "Food",
+      "amount": 2300
+    }
+  ]
+}

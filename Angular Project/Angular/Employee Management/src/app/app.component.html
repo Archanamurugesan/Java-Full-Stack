@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    </head>
+
+    <body>
+        <h1>Employee Management System</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                             <form #myForm="ngForm">
+                                <div class="form-group">
+                                    <label for="Employee Id">
+                                        Employee Id
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="empId" 
+                                           #empId="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                            />
+                                </div>
+
+                                <div *ngIf="empId.touched">
+                                  <div *ngIf="empId.errors?.['required']">
+                                    <font color="red"><b>Employee Id required.</b></font>
+                                  </div>
+                                  <div *ngIf="empId.errors?.['pattern']">
+                                    <font color="red"><b>Invalid Employee Id.</b></font>
+                                  </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Employee Name">
+                                        Employee Name
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="empName" 
+                                           #empName="ngModel" ngModel
+                                           required
+                                           pattern="[a-zA-z][a-zA-Z ]+"
+                                            />
+                                </div>
+
+                                
+                                <div *ngIf="empName.touched">
+                                    <div *ngIf="empName.errors?.['required']">
+                                      <font color="red"><b>Employee Name required.</b></font>
+                                    </div>
+                                    <div *ngIf="empName.errors?.['pattern']">
+                                      <font color="red"><b>Invalid Employee Name.</b></font>
+                                    </div>
+                                  </div>
+  
+                                <div class="form-group">
+                                    <label for="Employee Salary">
+                                        Employee Salary
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="empSalary" 
+                                           #empSalary="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                           />
+                                </div>
+
+                                
+                                <div *ngIf="empSalary.touched">
+                                    <div *ngIf="empSalary.errors?.['required']">
+                                      <font color="red"><b>Employee Salary required.</b></font>
+                                    </div>
+                                    <div *ngIf="empSalary.errors?.['pattern']">
+                                      <font color="red"><b>Invalid Employee Salary.</b></font>
+                                    </div>
+                                  </div>
+  
+                                                              
+                                <button class="btn btn-success" (click) = "insertEmployee(myForm.value)">
+                                    Insert 
+                                </button>
+                            &nbsp;&nbsp;
+                                <button class="btn btn-primary" (click) = "updateEmployee(myForm.value)" >
+                                    Update 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click) = "deleteEmployee(myForm.value)">
+                                    Delete 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-warning" (click) = "findEmployee(myForm.value)" >
+                                    Find 
+                                </button>
+                                &nbsp;&nbsp;
+                                <button class="btn btn-info" (click) = "findAllEmployee()" >
+                                    Find All
+                                </button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+         <br>
+         <h3>{{result}}</h3>
+
+         <div style="width: 100%;" *ngIf="flag">
+          <table width="80%" align="center" class="table table-borderd">
+           <tr><th>Employee Id</th><th>Employee Name</th><th>Employee Salary</th></tr> 
+            <tr *ngFor="let emp of employeeArr">
+                <td> {{emp.id}} </td><td> {{emp.empName}} </td><td> {{emp.empSalary}} </td>
+            </tr>
+         </table>
+         </div>
+
+    </body>
+</html>
+
