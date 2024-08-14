@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MicroProject": {
+    "Employee": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/micro-project",
+            "outputPath": "dist/employee",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,7 +39,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -69,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MicroProject:build:production"
+              "buildTarget": "Employee:build:production"
             },
             "development": {
-              "buildTarget": "MicroProject:build:development"
+              "buildTarget": "Employee:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,6 +109,6 @@
     }
   },
   "cli": {
-    "analytics": "8aa1f72f-7e91-4077-8b67-a22a5f174b44"
+    "analytics": "8ec00826-1d3e-4499-a233-8acc974b9d2e"
   }
 }

@@ -1,44 +1,61 @@
 import { Component } from '@angular/core';
+import { ExpensesService } from './expenses.service';
+import { Expenses } from './model/Expenses';
 
-Component({
+@Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-interface Expense {
-  date: string;
-  category: string;
-  amount: number;
+export class AppComponent {
+  title = 'MicroProject';
+  expenses : Expenses;
+  result : string;
+  expensesArr : Expenses[];
+  flag : Boolean;
+
+
+  constructor(private service : ExpensesService){
+    this.expenses= new Expenses();
+    this.result = " ";
+    this.expensesArr=[];
+    this.flag = false;
+  }
+
+  insertExpenses(data : any){
+    this.expenses.id = data.Id;
+    this.expenses.place = data.place;
+    this.expenses.category = data.category;
+    this.expenses.amount = data.amount;
+    this.result = this.service.insertExpenses(this.expenses);
+
 }
 
-function addExpense(expense: Expense): void {
-  const table: HTMLTableElement = document.getElementById('expense-table') as HTMLTableElement;
-  const row: HTMLTableRowElement = table.insertRow();
+updateExpenses(data : any){
+  this.expenses.id = data.Id;
+  this.expenses.place = data.place;
+  this.expenses.category = data.category;
+  this.expenses.amount = data.amount;
+  this.result = this.service.updateExpenses(this.expenses);
 
-  const dateCell: HTMLTableCellElement = row.insertCell(0);
-  const categoryCell: HTMLTableCellElement = row.insertCell(1);
-  const amountCell: HTMLTableCellElement = row.insertCell(2);
-
-  dateCell.textContent = expense.date;
-  categoryCell.textContent = expense.category;
-  amountCell.textContent = expense.amount.toString();
 }
 
-document.getElementById('expense-form')!.addEventListener('submit', function(event: Event): void {
-  event.preventDefault();
+deleteExpenses(data : any){
+  this.result =  this.service.deleteExpenses(data.Id);
 
-  const dateInput: HTMLInputElement = document.getElementById('date') as HTMLInputElement;
-  const categoryInput: HTMLInputElement = document.getElementById('category') as HTMLInputElement;
-  const amountInput: HTMLInputElement = document.getElementById('amount') as HTMLInputElement;
+}
 
-  const expense: Expense = {
-      date: dateInput.value,
-      category: categoryInput.value,
-      amount: parseFloat(amountInput.value)
-  };
 
-  addExpense(expense);
+findExpenses(data : any) {
+  this.expenses = this.service.findExpenses(data.Id);
+  this.result = this.expenses.id + " " + this.expenses.place +" "+this.expenses.category+" "+this.expenses.amount;
+}
 
-  (document.getElementById('expense-form') as HTMLFormElement).reset();
-});
+
+findAllExpenses() {
+  this.expensesArr = this.service.findAllExpenses();
+  this.flag = true;
+}
+
+}
 

@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MicroProject": {
+    "Project": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/micro-project",
+            "outputPath": "dist/project",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,7 +29,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -69,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MicroProject:build:production"
+              "buildTarget": "Project:build:production"
             },
             "development": {
-              "buildTarget": "MicroProject:build:development"
+              "buildTarget": "Project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "8aa1f72f-7e91-4077-8b67-a22a5f174b44"
+    "analytics": "6663da62-6ce8-4a65-875a-b2b582fee410"
   }
 }
